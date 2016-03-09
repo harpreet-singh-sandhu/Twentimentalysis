@@ -34,7 +34,7 @@ print(negative_sentiment.shape)
 
 # In[5]:
 
-val = 800000
+val = 10000
 frames = [positive_sentiment[:val], negative_sentiment[:val]]
 data_df = pd.concat(frames)
 data_df.shape
