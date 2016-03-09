@@ -13,6 +13,7 @@ import pandas as pd
 data_df = pd.read_csv("sentiment.csv", quotechar='"', encoding= "ISO-8859-1")
 data_df.shape
 
+raw_input("Press enter")
 
 # In[3]:
 
@@ -33,7 +34,7 @@ print(negative_sentiment.shape)
 
 # In[5]:
 
-val = 1500
+val = 800000
 frames = [positive_sentiment[:val], negative_sentiment[:val]]
 data_df = pd.concat(frames)
 data_df.shape
@@ -52,7 +53,7 @@ data_df.Sentiment.value_counts()
 # In[8]:
 
 import numpy as np
-print("Average # words per post: ",np.mean([len(s.split(" ")) for s in data_df.TweetText]))
+#print("Average # words per post: ",np.mean([len(s.split(" ")) for s in data_df.TweetText]))
 
 
 # In[9]:
@@ -127,14 +128,14 @@ features_matrix = vectorizer.fit_transform(training_set.TweetText.tolist() + tes
 
 # In[17]:
 
-features_matrix = features_matrix.toarray()
+#features_matrix = features_matrix.toarray()
 #features.shape
 #del features_matrix
 
 
 # In[18]:
 
-vocab = vectorizer.get_feature_names()
+#vocab = vectorizer.get_feature_names()
 #print(vocab)
 #del vocab
 
@@ -164,73 +165,74 @@ del test_set
 
 # In[22]:
 
-from sklearn.linear_model import LogisticRegression
-
-log_model = LogisticRegression()
-log_model = log_model.fit(X=X_train, y=y_train)
-y_pred = log_model.predict(X_test)
+#from sklearn.linear_model import LogisticRegression
+#log_model = LogisticRegression()
+#log_model = log_model.fit(X=X_train, y=y_train)
+#y_pred = log_model.predict(X_test)
 
 
 # In[23]:
 
 from sklearn.metrics import classification_report
-print("LogisticRegression")
-print(classification_report(y_test, y_pred))
+#print("LogisticRegression")
+#print(classification_report(y_test, y_pred))
 
 
 # In[24]:
 
-from sklearn.naive_bayes import GaussianNB
-gnb = GaussianNB()
-NB_model = gnb.fit(X=X_train, y=y_train)
-NB_predictions = NB_model.predict(X_test)
+#from sklearn.naive_bayes import GaussianNB
+#gnb = GaussianNB()
+#NB_model = gnb.fit(X=X_train, y=y_train)
+#NB_predictions = NB_model.predict(X_test)
 
 
 # In[25]:
-print("Gaussian Naive Bayes")
-print(classification_report(y_test, NB_predictions))
+#print("Gaussian Naive Bayes")
+#print(classification_report(y_test, NB_predictions))
 
 
 # In[26]:
 
-from sklearn.svm import SVC
-svm_clf = SVC()
-svm_model = svm_clf.fit(X=X_train, y=y_train) 
-svm_predictions = svm_model.predict(X_test)
+#from sklearn.svm import SVC
+#svm_clf = SVC()
+#svm_model = svm_clf.fit(X=X_train, y=y_train) 
+#svm_predictions = svm_model.predict(X_test)
 
 
 # In[27]:
-print("Support Vector Classifier")
-print(classification_report(y_test, svm_predictions))
+#print("Support Vector Classifier")
+#print(classification_report(y_test, svm_predictions))
 
 
 # In[28]:
 
-from sklearn import tree
-clf = tree.DecisionTreeClassifier()
-clf = clf.fit(X_train, y_train)
-clf_predictions = clf.predict(X_test)
+#from sklearn import tree
+#clf = tree.DecisionTreeClassifier()
+#clf = clf.fit(X_train, y_train)
+#clf_predictions = clf.predict(X_test)
 
 
 # In[29]:
-print("DecisionTreeClassifier")
-print(classification_report(y_test, clf_predictions))
+#print("DecisionTreeClassifier")
+#print(classification_report(y_test, clf_predictions))
 
 
 # In[30]:
 
-from sklearn.ensemble import RandomForestClassifier
-clf = RandomForestClassifier(n_estimators=40)
-clf = clf.fit(X_train, y_train)
-clf_predictions = clf.predict(X_test)
+#from sklearn.ensemble import RandomForestClassifier
+#clf = RandomForestClassifier(n_estimators=40)
+#clf = clf.fit(X_train, y_train)
+#clf_predictions = clf.predict(X_test)
 
 
 # In[31]:
-print("RandomForestClassifier")
-print(classification_report(y_test, clf_predictions))
+#print("RandomForestClassifier")
+#print(classification_report(y_test, clf_predictions))
 
 
 # In[32]:
+
+raw_input("Press enter")
 
 from sklearn.naive_bayes import BernoulliNB
 clf = BernoulliNB()
@@ -245,13 +247,13 @@ print(classification_report(y_test, clf_predictions))
 
 # In[34]:
 
-from sklearn.ensemble import AdaBoostClassifier
-clf = AdaBoostClassifier()
-clf.fit(X_train, y_train)
-clf_predictions = clf.predict(X_test)
+#from sklearn.ensemble import AdaBoostClassifier
+#clf = AdaBoostClassifier()
+#clf.fit(X_train, y_train)
+#clf_predictions = clf.predict(X_test)
 
 
 # In[35]:
-print("AdaBoostClassifier")
-print(classification_report(y_test, clf_predictions))
+#print("AdaBoostClassifier")
+#print(classification_report(y_test, clf_predictions))
 
