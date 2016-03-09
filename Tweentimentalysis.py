@@ -33,7 +33,7 @@ print(negative_sentiment.shape)
 
 # In[5]:
 
-val = 1000
+val = 1500
 frames = [positive_sentiment[:val], negative_sentiment[:val]]
 data_df = pd.concat(frames)
 data_df.shape
@@ -174,6 +174,7 @@ y_pred = log_model.predict(X_test)
 # In[23]:
 
 from sklearn.metrics import classification_report
+print("LogisticRegression")
 print(classification_report(y_test, y_pred))
 
 
@@ -186,7 +187,7 @@ NB_predictions = NB_model.predict(X_test)
 
 
 # In[25]:
-
+print("Gaussian Naive Bayes")
 print(classification_report(y_test, NB_predictions))
 
 
@@ -199,7 +200,7 @@ svm_predictions = svm_model.predict(X_test)
 
 
 # In[27]:
-
+print("Support Vector Classifier")
 print(classification_report(y_test, svm_predictions))
 
 
@@ -212,7 +213,7 @@ clf_predictions = clf.predict(X_test)
 
 
 # In[29]:
-
+print("DecisionTreeClassifier")
 print(classification_report(y_test, clf_predictions))
 
 
@@ -225,7 +226,7 @@ clf_predictions = clf.predict(X_test)
 
 
 # In[31]:
-
+print("RandomForestClassifier")
 print(classification_report(y_test, clf_predictions))
 
 
@@ -238,7 +239,7 @@ clf_predictions = clf.predict(X_test)
 
 
 # In[33]:
-
+print("BernoulliNB")
 print(classification_report(y_test, clf_predictions))
 
 
@@ -251,6 +252,6 @@ clf_predictions = clf.predict(X_test)
 
 
 # In[35]:
-
+print("AdaBoostClassifier")
 print(classification_report(y_test, clf_predictions))
 
