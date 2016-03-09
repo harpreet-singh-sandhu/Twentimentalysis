@@ -33,7 +33,7 @@ print(negative_sentiment.shape)
 
 # In[5]:
 
-val = 1500
+val = 10000
 frames = [positive_sentiment[:val], negative_sentiment[:val]]
 data_df = pd.concat(frames)
 data_df.shape
@@ -127,14 +127,14 @@ features_matrix = vectorizer.fit_transform(training_set.TweetText.tolist() + tes
 
 # In[17]:
 
-features_matrix = features_matrix.toarray()
+#features_matrix = features_matrix.toarray()
 #features.shape
 #del features_matrix
 
 
 # In[18]:
 
-vocab = vectorizer.get_feature_names()
+#vocab = vectorizer.get_feature_names()
 #print(vocab)
 #del vocab
 
@@ -180,28 +180,28 @@ print(classification_report(y_test, y_pred))
 
 # In[24]:
 
-from sklearn.naive_bayes import GaussianNB
-gnb = GaussianNB()
-NB_model = gnb.fit(X=X_train, y=y_train)
-NB_predictions = NB_model.predict(X_test)
+#from sklearn.naive_bayes import GaussianNB
+#gnb = GaussianNB()
+#NB_model = gnb.fit(X=X_train, y=y_train)
+#NB_predictions = NB_model.predict(X_test)
 
 
 # In[25]:
-print("Gaussian Naive Bayes")
-print(classification_report(y_test, NB_predictions))
+#print("Gaussian Naive Bayes")
+#print(classification_report(y_test, NB_predictions))
 
 
 # In[26]:
 
-from sklearn.svm import SVC
-svm_clf = SVC()
-svm_model = svm_clf.fit(X=X_train, y=y_train) 
-svm_predictions = svm_model.predict(X_test)
+#from sklearn.svm import SVC
+#svm_clf = SVC()
+#svm_model = svm_clf.fit(X=X_train, y=y_train) 
+#svm_predictions = svm_model.predict(X_test)
 
 
 # In[27]:
-print("Support Vector Classifier")
-print(classification_report(y_test, svm_predictions))
+#print("Support Vector Classifier")
+#print(classification_report(y_test, svm_predictions))
 
 
 # In[28]:
